@@ -4,10 +4,16 @@ version = "0.1.0"
 description = ""
 authors = ["Konstantin Losev <konstantin.losev@gcore.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 Kivy = {extras = ["base"], version = "^2.3.0"}
+buildozer = "^1.5.0"
+cython = "^3.0.11"
+yamspy = { path = "../yamspy/", develop = true }
+usb4a = "^0.3.0"
+usbserial4a = "^0.4.0"
 
 
 [build-system]

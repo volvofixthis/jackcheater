@@ -13,10 +13,10 @@ package.domain = tech.lakin
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas
+source.include_exts = py,png,jpg,kv,atlas,mp3
 
 # (list) List of inclusions using pattern matching
-#source.include_patterns = assets/*,images/*.png
+source.include_patterns = assets/*,images/*.png
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
@@ -29,7 +29,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1
+version = 0.3
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -37,17 +37,17 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy
+requirements = python3,kivy,git+https://github.com/volvofixthis/YAMSPy.git,usb4a,usbserial4a,pyserial
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+presplash.filename = assets/splash.jpg
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/icon.png
+icon.filename = assets/infrared.ico
 
 # (list) Supported orientations
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
@@ -96,9 +96,10 @@ fullscreen = 0
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
+android.permissions = android.permission.USB_PERMISSION
 
 # (list) features (adds uses-feature -tags to manifest)
-#android.features = android.hardware.usb.host
+# android.features = android.hardware.usb.host
 
 # (int) Target Android API, should be as high as possible.
 #android.api = 31
@@ -147,7 +148,7 @@ fullscreen = 0
 
 # (str) Extra xml to write directly inside the <manifest> element of AndroidManifest.xml
 # use that parameter to provide a filename from where to load your custom XML code
-#android.extra_manifest_xml = ./src/android/extra_manifest.xml
+android.extra_manifest_xml = ./extra_manifest.xml
 
 # (str) Extra xml to write directly inside the <manifest><application> tag of AndroidManifest.xml
 # use that parameter to provide a filename from where to load your custom XML arguments:
@@ -198,7 +199,7 @@ fullscreen = 0
 # 3) A directory, here 'legal_resources' must contain one or more directories, 
 # each of a resource kind:  drawable, xml, etc...
 # android.add_resources = legal_resources
-#android.add_resources =
+android.add_resources = ./res
 
 # (list) Gradle dependencies to add
 #android.gradle_dependencies =
@@ -236,7 +237,7 @@ fullscreen = 0
 #android.ouya.icon.filename = %(source.dir)s/data/ouya_icon.png
 
 # (str) XML file to include as an intent filters in <activity> tag
-#android.manifest.intent_filters =
+android.manifest.intent_filters = ./intent_filter.xml
 
 # (list) Copy these files to src/main/res/xml/ (used for example with intent-filters)
 #android.res_xml = PATH_TO_FILE,
@@ -257,7 +258,7 @@ fullscreen = 0
 
 # (bool) Indicate whether the screen should stay on
 # Don't forget to add the WAKE_LOCK permission if you set this to True
-#android.wakelock = False
+android.wakelock = True
 
 # (list) Android application meta-data to set (key=value format)
 #android.meta_data =
